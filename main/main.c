@@ -30,9 +30,15 @@ esp_err_t event_handler(void *ctx, system_event_t *event)
     return ESP_OK;
 }
 
+#define BACKLIGHT 33
+
 int app_main(void)
 {
 	printf("NoFrendo start!\n");
+	gpio_pad_select_gpio(BACKLIGHT);
+    /* Set the GPIO as a push/pull output */
+    gpio_set_direction(BACKLIGHT, GPIO_MODE_OUTPUT);
+	gpio_set_level(BACKLIGHT, 1);
 	nofrendo_main(0, NULL);
 	printf("NoFrendo died? WtF?\n");
 	asm("break.n 1");

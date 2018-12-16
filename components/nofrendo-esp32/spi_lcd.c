@@ -39,12 +39,12 @@
 #define LCD_RST_SET()   GPIO.out_w1ts = (1 << PIN_NUM_RST) 
 #define LCD_RST_CLR()   GPIO.out_w1tc = (1 << PIN_NUM_RST)
 
-#if CONFIG_HW_INV_BL
-#define LCD_BKG_ON()    GPIO.out_w1tc = (1 << PIN_NUM_BCKL) // Backlight ON
-#define LCD_BKG_OFF()   GPIO.out_w1ts = (1 << PIN_NUM_BCKL) //Backlight OFF
+#if CONFIG_HW_INV_BL  
+#define LCD_BKG_ON()    GPIO.out1_w1tc.val = ((uint32_t)1 << (PIN_NUM_BCKL - 32)) // Backlight ON
+#define LCD_BKG_OFF()   GPIO.out1_w1ts.val = ((uint32_t)1 << (PIN_NUM_BCKL - 32)) //Backlight OFF
 #else
-#define LCD_BKG_ON()    GPIO.out_w1ts = (1 << PIN_NUM_BCKL) // Backlight ON
-#define LCD_BKG_OFF()   GPIO.out_w1tc = (1 << PIN_NUM_BCKL) //Backlight OFF
+#define LCD_BKG_ON()    GPIO.out1_w1ts.val = ((uint32_t)1 << (PIN_NUM_BCKL - 32)) // Backlight ON
+#define LCD_BKG_OFF()   GPIO.out1_w1tc.val = ((uint32_t)1 << (PIN_NUM_BCKL - 32)) //Backlight OFF
 #endif
 
 #define SPI_NUM  0x3
@@ -298,10 +298,10 @@ static void  ILI9341_INITIAL ()
 
 static void ili_gpio_init()
 {
-    PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO21_U,2);   //DC PIN
-    PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO18_U,2);   //RESET PIN
-    PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO5_U,2);    //BKL PIN
-    WRITE_PERI_REG(GPIO_ENABLE_W1TS_REG, BIT21|BIT18|BIT5);
+    PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO27_U,2);   //DC PIN - changed from 21
+    //PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO18_U,2);   //RESET PIN
+    //PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO5_U,2);    //BKL PIN
+    WRITE_PERI_REG(GPIO_ENABLE_W1TS_REG, BIT27);
 }
 
 static void spi_master_init()
@@ -312,9 +312,9 @@ static void spi_master_init()
     ets_printf("lcd spi pin mux init ...\r\n");
     PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO19_U,2);
     PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO23_U,2);
-    PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO22_U,2);
-    PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO25_U,2);
-    WRITE_PERI_REG(GPIO_ENABLE_W1TS_REG, BIT19|BIT23|BIT22);
+    PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO18_U,2); // changed from 22
+    PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO5_U,2); // changed from 25
+    WRITE_PERI_REG(GPIO_ENABLE_W1TS_REG, BIT19|BIT23|BIT18|BIT5);
 
     ets_printf("lcd spi signal init\r\n");
     gpio_matrix_in(PIN_NUM_MISO, VSPIQ_IN_IDX,0);
