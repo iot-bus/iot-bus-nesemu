@@ -59,7 +59,7 @@ Also connect the power and ground lines. Most PS1/PS2 controllers work fine from
 
 ROM
 ---
-This NES emulator does not come with a ROM. Please supply your own and flash to address 0x00100000. You can use the flashrom.sh script as a template for doing so.
+This NES emulator does not come with a ROM (game). Please supply your own and flash to address 0x00100000. You can use the flashrom.sh script as a template for doing so.
 You can download ROMs from multiple locations on the web.
 
 Copyright
