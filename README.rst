@@ -34,8 +34,7 @@ To display the NES output, please plug an IoT-Bus Io into an IoT-Bus Display. Pi
     BCKL   33
     =====  =======================
 
-Ground and 3V3 are also connected
-EN is connected to TFT RESET    
+Ground and 3V3 are also connected. EN is connected to TFT RESET.    
 
 (BCKL = backlight enable)
 
@@ -56,7 +55,7 @@ To control the NES, connect a Playstation 1 or 2 controller as such:
     CMD    4
     =====  =====
 
-Also connect the power and ground lines. Most PS1/PS2 controllers work fine from a 3.3V power supplyå.
+Also connect the power and ground lines. Most PS1/PS2 controllers work fine from a 3.3V power supply.
 
 ROM
 ---
