@@ -59,6 +59,11 @@ To control the NES, connect a Playstation 1 or 2 controller as (colors may not b
 
 Also connect the power and ground lines. Most PS1/PS2 controllers work fine from a 3.3V power supply.
 
+Sound
+-----
+
+Connect a mini-speaker that has an integrated amplifier to pin 26 (DAC).
+
 ROM
 ---
 This NES emulator does not come with a ROM (game). Please supply your own and flash to address 0x00100000. You can use the flashrom.sh script as a template for doing so.
