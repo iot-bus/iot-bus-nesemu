@@ -11,7 +11,7 @@ Warning
 
 This is a proof-of-concept and not an official application note. As such, this code is entirely unsupported by Espressif or oddWires.
 
-.. image:: nintendo.jpg)
+.. image:: nintendo.jpg
 
 
 Compiling
