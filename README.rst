@@ -9,7 +9,9 @@ to full speed, albeit with some framedrop due to the way the display is driven.
 Warning
 -------
 
-This is a proof-of-concept and not an official application note. As such, this code is entirely unsupported by Espressif.
+This is a proof-of-concept and not an official application note. As such, this code is entirely unsupported by Espressif or oddWires.
+
+![nintendo](nintendo.jpg)
 
 
 Compiling
@@ -44,16 +46,16 @@ the SPI controller using DMA is better, but was left out due to this being a pro
 Controller
 ----------
 
-To control the NES, connect a Playstation 1 or 2 controller as such:
+To control the NES, connect a Playstation 1 or 2 controller as (colors may not be the same):
 
-    =====  =====
+    =====  ===============
     Pin    GPIO
-    =====  =====
-    CLK    15
-    DAT    14
-    ATT    13
-    CMD    4
-    =====  =====
+    =====  ===============
+    CLK    15 BLUE
+    DAT    14 LIGHT ORANGE
+    ATT    13 YELLOW
+    CMD    4  ORANGE
+    =====  ===============
 
 Also connect the power and ground lines. Most PS1/PS2 controllers work fine from a 3.3V power supply.
 
